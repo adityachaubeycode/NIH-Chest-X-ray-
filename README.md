@@ -13,6 +13,26 @@ Dataset Name: NIH Chest X-ray Dataset (ChestX-ray14)
 Source: Kaggle
 Link: (https://www.kaggle.com/datasets/nih-chest-xrays/data)
 Dataset Description
+📊 Key Highlights
+🔬 Medical Imaging Use Case – Real-world dataset (NIH ChestX-ray14)
+🧠 Model – DenseNet (transfer learning + fine-tuning)
+⚖️ Multi-label Classification – 14 thoracic diseases
+🧪 Augmentation – Albumentations pipeline
+📈 Evaluation – AUROC, F1-score, Precision/Recall
+⚡ Efficient Training – PyTorch + tqdm + timeit
+📂 Dataset
+Name: NIH Chest X-ray Dataset (ChestX-ray14)
+Source: Kaggle
+Link: (Paste your dataset link here)
+📌 Dataset Summary
+~100,000+ frontal chest X-ray images
+14 disease labels (multi-label classification)
+Real-world noisy annotations
+Highly imbalanced class distribution
+🏷️ Disease Labels
+
+<img width="685" height="381" alt="image" src="https://github.com/user-attachments/assets/90ff2529-d179-498c-ba37-b8f19d536ea8" />
+
 
 The NIH Chest X-ray dataset contains over 100,000 frontal-view X-ray images annotated with 14 disease labels, including:
 
@@ -76,18 +96,17 @@ Accuracy
 AUROC (Area Under ROC Curve)
 F1 Score
 Precision / Recall
-📈 Results
-
-(Fill this section with your results)
 
 Example:
 
-Mean AUROC: XX.XX
+Mean AUROC: 50
 Best performing class: Pneumonia
 Observations:
 Model performs well on high-frequency classes
 Struggles with rare pathologies due to imbalance
+
 🚀 How to Run
+
 # Clone repository
 git clone <your-repo-link>
 
@@ -105,19 +124,18 @@ Severe class imbalance
 Noisy labels in dataset
 High intra-class similarity
 Limited interpretability of predictions
+
 🔮 Future Work
 Incorporate attention mechanisms (e.g., Grad-CAM visualization)
 Use ensemble models
 Apply class balancing techniques (e.g., focal loss)
 Experiment with Vision Transformers
+
 📚 References
 NIH Chest X-ray Dataset paper
 DenseNet Architecture Paper
 Recent medical imaging research papers
-👨‍💻 Author
 
-Aditya Chaubey 
-DL Enthusiastic
 
 🚀 Project Overview
 
@@ -125,114 +143,9 @@ This project implements a deep learning pipeline for multi-label thoracic diseas
 
 The goal is to simulate a real-world clinical decision support system, where multiple pathologies may co-exist in a single radiograph.
 
-📊 Key Highlights
-🔬 Medical Imaging Use Case – Real-world dataset (NIH ChestX-ray14)
-🧠 Model – DenseNet (transfer learning + fine-tuning)
-⚖️ Multi-label Classification – 14 thoracic diseases
-🧪 Augmentation – Albumentations pipeline
-📈 Evaluation – AUROC, F1-score, Precision/Recall
-⚡ Efficient Training – PyTorch + tqdm + timeit
-📂 Dataset
-Name: NIH Chest X-ray Dataset (ChestX-ray14)
-Source: Kaggle
-Link: (Paste your dataset link here)
-📌 Dataset Summary
-~100,000+ frontal chest X-ray images
-14 disease labels (multi-label classification)
-Real-world noisy annotations
-Highly imbalanced class distribution
-🏷️ Disease Labels
-
-Atelectasis, Cardiomegaly, Effusion, Infiltration, Mass, Nodule, Pneumonia, Pneumothorax, Consolidation, Edema, Emphysema, Fibrosis, Pleural Thickening, Hernia
-
-🛠️ Tech Stack
-Category	Tools Used
-Deep Learning	PyTorch
-Data Processing	pandas
-Visualization	matplotlib
-Augmentation	albumentations
-Utilities	tqdm, timeit
-🧠 Model Architecture
-Backbone: DenseNet (pretrained on ImageNet)
-Modification: Final layer adapted for 14-label sigmoid output
-Loss Function: BCEWithLogitsLoss
-Optimizer: Adam
-💡 Why DenseNet?
-
-DenseNet enables:
-
-Better gradient flow
-Feature reuse across layers
-Strong performance on medical imaging tasks
-🔄 Data Pipeline
-Preprocessing
-Resize to 224×224
-Normalize pixel values
-Convert to tensor
-Augmentation (Albumentations)
-Horizontal Flip
-Random Brightness/Contrast
-Rotation
-🏋️ Training Configuration
-Parameter	Value
-Batch Size	(your value)
-Epochs	(your value)
-Learning Rate	(your value)
-Device	GPU / CPU
-Strategy
-Transfer learning
-Fine-tuning deeper layers
-Validation-based checkpointing
-📈 Results
-
-(Replace with your actual results)
-
-Metric	Score
-Mean AUROC	XX.XX
-F1 Score	XX.XX
-Precision	XX.XX
-Recall	XX.XX
-📌 Observations
-Strong performance on frequent classes
-Reduced accuracy on rare diseases (class imbalance)
-Multi-label predictions capture co-existing conditions effectively
-
-⚙️ Installation & Usage
-# Clone repository
-git clone <your-repo-link>
-cd <repo-name>
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Train model
-python train.py
-
-# Evaluate model
-python evaluate.py
-🧪 Reproducibility
-Seed initialization for deterministic behavior
-Modular training pipeline
-Compatible with Kaggle notebooks
-⚠️ Challenges & Learnings
-Severe class imbalance → required careful loss design
-Label noise → impacts model reliability
-Medical domain complexity → harder than standard CV tasks
-🔮 Future Improvements
-🔍 Grad-CAM for interpretability
-⚖️ Focal Loss / Class Weights
-🧠 Vision Transformers (ViT)
-📊 Ensemble models for better generalization
-📚 References
-NIH Chest X-ray Dataset Paper
-DenseNet Paper
-Recent research in medical image classification
 👨‍💻 Author
-
-Aditya Chaubey
-
-AI / ML Enthusiast
+Aditya Chaubey 
+DL Enthusiastic
 Focus: Deep Learning, Medical Imaging, AI Systems
 ⭐ If You Found This Useful
-
 Give it a star ⭐ on GitHub — it helps visibility and motivates further development.
