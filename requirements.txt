@@ -1,0 +1,22 @@
+# Core Deep Learning
+torch==2.2.2
+torchvision==0.17.2
+
+# Data Handling
+pandas==2.2.2
+numpy==1.26.4
+
+# Visualization
+matplotlib==3.8.4
+
+# Image Processing & Augmentation
+albumentations==1.4.8
+opencv-python==4.9.0.80
+
+# Utilities
+tqdm==4.66.4
+timeit==4.6
+
+# Optional (useful for experiments / debugging)
+scikit-learn==1.4.2
+Pillow==10.3.0
