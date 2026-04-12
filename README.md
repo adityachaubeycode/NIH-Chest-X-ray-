@@ -1,4 +1,7 @@
 🫁 NIH Chest X-ray Classification using DenseNet
+
+This NIH Chest X-ray Dataset is comprised of 112,120 X-ray images with disease labels from 30,805 unique patients. To create these labels, the authors used Natural Language Processing to text-mine disease classifications from the associated radiological reports. The labels are expected to be >90% accurate and suitable for weakly-supervised learning. The original radiology reports are not publicly available but you can find more details on the labeling process in this Open Access paper: "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases." (Wang et al.)
+
 <img width="685" height="692" alt="image" src="https://github.com/user-attachments/assets/ae1a9092-46c9-473f-aea3-3201cd06cca3" />
 
 📌 Abstract
@@ -8,7 +11,7 @@ This project focuses on automated thoracic disease classification using chest X-
 📂 Dataset
 Dataset Name: NIH Chest X-ray Dataset (ChestX-ray14)
 Source: Kaggle
-Link: (Paste your dataset link here)
+Link: (https://www.kaggle.com/datasets/nih-chest-xrays/data)
 Dataset Description
 
 The NIH Chest X-ray dataset contains over 100,000 frontal-view X-ray images annotated with 14 disease labels, including:
@@ -96,13 +99,7 @@ python train.py
 
 # Evaluate model
 python evaluate.py
-📌 Project Structure
-├── data/
-├── models/
-├── train.py
-├── evaluate.py
-├── utils.py
-├── README.md
+
 ⚠️ Challenges
 Severe class imbalance
 Noisy labels in dataset
@@ -119,19 +116,9 @@ DenseNet Architecture Paper
 Recent medical imaging research papers
 👨‍💻 Author
 
-(Your Name Here)
+Aditya Chaubey 
+DL Enthusiastic
 
-If you want, I can:
-
-Add actual metrics section formatting (tables + plots)
-Include Grad-CAM visualization section
-Or tailor this for GitHub + Kaggle presentation (more polished + recruiter-ready)
-tailor this for GitHub + Kaggle presentation (more polished + recruiter-ready)
-
-Here’s a polished, recruiter-ready README.md tailored for both GitHub + Kaggle presentation. It emphasizes clarity, reproducibility, and technical depth—while still being concise and professional.
-
-🫁 NIH Chest X-ray Multi-Label Classification (DenseNet)
-5
 🚀 Project Overview
 
 This project implements a deep learning pipeline for multi-label thoracic disease classification using chest X-ray images from the NIH dataset. The model is built on a DenseNet backbone and optimized for handling class imbalance and multi-label prediction challenges common in medical imaging.
@@ -209,15 +196,7 @@ Recall	XX.XX
 Strong performance on frequent classes
 Reduced accuracy on rare diseases (class imbalance)
 Multi-label predictions capture co-existing conditions effectively
-📁 Project Structure
-├── data/               # Dataset (not included in repo)
-├── models/             # Model definitions
-├── notebooks/          # Kaggle / EDA notebooks
-├── train.py            # Training script
-├── evaluate.py         # Evaluation script
-├── utils.py            # Helper functions
-├── requirements.txt
-└── README.md
+
 ⚙️ Installation & Usage
 # Clone repository
 git clone <your-repo-link>
