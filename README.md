@@ -1,151 +1,204 @@
-🫁 NIH Chest X-ray Classification using DenseNet
+# 🩻 Chest X-Ray Disease Classification using DenseNet121
 
-This NIH Chest X-ray Dataset is comprised of 112,120 X-ray images with disease labels from 30,805 unique patients. To create these labels, the authors used Natural Language Processing to text-mine disease classifications from the associated radiological reports. The labels are expected to be >90% accurate and suitable for weakly-supervised learning. The original radiology reports are not publicly available but you can find more details on the labeling process in this Open Access paper: "ChestX-ray8: Hospital-scale Chest X-ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases." (Wang et al.)
+## Overview
 
-<img width="685" height="692" alt="image" src="https://github.com/user-attachments/assets/ae1a9092-46c9-473f-aea3-3201cd06cca3" />
+This project focuses on automated chest X-ray disease classification using Deep Learning and Transfer Learning. The model is trained on a large-scale chest X-ray dataset from Kaggle and is capable of identifying multiple thoracic diseases from a single radiograph.
 
-📌 Abstract
+The implementation is built entirely in **PyTorch** and leverages a pretrained **DenseNet121** architecture. To improve model interpretability, **Grad-CAM heatmaps** are generated to visualize the regions of the X-ray that contribute most to the model's predictions.
 
-This project focuses on automated thoracic disease classification using chest X-ray images from the NIH dataset. Leveraging deep learning techniques, specifically a DenseNet-based architecture, the model aims to learn high-level visual representations for multi-label classification of chest pathologies. The work is inspired by recent advances in medical imaging and seeks to improve diagnostic assistance using convolutional neural networks.
+---
 
-📂 Dataset
-Dataset Name: NIH Chest X-ray Dataset (ChestX-ray14)
-Source: Kaggle
-Link: (https://www.kaggle.com/datasets/nih-chest-xrays/data)
-Dataset Description
-📊 Key Highlights
-🔬 Medical Imaging Use Case – Real-world dataset (NIH ChestX-ray14)
-🧠 Model – DenseNet (transfer learning + fine-tuning)
-⚖️ Multi-label Classification – 14 thoracic diseases
-🧪 Augmentation – Albumentations pipeline
-📈 Evaluation – AUROC, F1-score, Precision/Recall
-⚡ Efficient Training – PyTorch + tqdm + timeit
-📂 Dataset
-Name: NIH Chest X-ray Dataset (ChestX-ray14)
-Source: Kaggle
-Link: (Paste your dataset link here)
-📌 Dataset Summary
-~100,000+ frontal chest X-ray images
-14 disease labels (multi-label classification)
-Real-world noisy annotations
-Highly imbalanced class distribution
-🏷️ Disease Labels
+## Project Highlights
 
-<img width="685" height="381" alt="image" src="https://github.com/user-attachments/assets/90ff2529-d179-498c-ba37-b8f19d536ea8" />
+✅ Multi-label chest X-ray disease classification
 
+✅ Transfer Learning with pretrained DenseNet121
 
-The NIH Chest X-ray dataset contains over 100,000 frontal-view X-ray images annotated with 14 disease labels, including:
+✅ PyTorch-based training pipeline
 
-Atelectasis
-Cardiomegaly
-Effusion
-Infiltration
-Mass
-Nodule
-Pneumonia
-Pneumothorax
-Consolidation
-Edema
-Emphysema
-Fibrosis
-Pleural Thickening
-Hernia
-Key Characteristics
-Multi-label classification problem
-High class imbalance
-Grayscale medical images
-Resolution varies (commonly resized during preprocessing)
-⚙️ Libraries & Tools
+✅ Grad-CAM explainability visualizations
 
-The following libraries were used in the implementation:
+✅ Learning rate scheduling using ReduceLROnPlateau
 
-PyTorch – Deep learning framework
-tqdm – Progress tracking
-timeit – Performance benchmarking
-matplotlib – Visualization
-pandas – Data handling
-albumentations – Data augmentation
-🧠 Methodology
-Model Architecture
-Backbone: DenseNet (pretrained)
-Fine-tuned on NIH dataset
-Adapted final fully connected layer for multi-label classification
-Why DenseNet?
+✅ Achieved **83% ROC-AUC**, approaching the performance reported in the **ChestX-ray14 (CheXNet) paper**
 
-DenseNet improves feature propagation and reduces vanishing gradients through dense connectivity, making it particularly effective for medical imaging tasks.
+✅ Trained on **NVIDIA Tesla T4 GPU** using Kaggle Notebooks
 
-🔄 Data Preprocessing
-Image resizing (e.g., 224×224)
-Normalization
-Data augmentation using albumentations:
-Horizontal flipping
-Random brightness/contrast
-Rotation
-🏋️ Training Details
-Loss Function: Binary Cross Entropy (BCE) / BCEWithLogitsLoss
-Optimizer: Adam
-Learning Rate: Tuned experimentally
-Batch Size: Depends on GPU capacity
-Epochs: (Specify your number)
-Training Strategy
-Transfer learning with pretrained weights
-Fine-tuning deeper layers
-Monitoring validation loss to prevent overfitting
-📊 Evaluation Metrics
-Accuracy
-AUROC (Area Under ROC Curve)
-F1 Score
-Precision / Recall
+---
 
-Example:
+## Dataset
 
-Mean AUROC: 50
-Best performing class: Pneumonia
-Observations:
-Model performs well on high-frequency classes
-Struggles with rare pathologies due to imbalance
+The model was trained on a chest X-ray dataset available on Kaggle containing frontal-view chest radiographs with disease labels.
 
-🚀 How to Run
+The dataset includes multiple thoracic conditions such as:
 
-# Clone repository
-git clone <your-repo-link>
+* Atelectasis
+* Cardiomegaly
+* Consolidation
+* Edema
+* Effusion
+* Emphysema
+* Fibrosis
+* Hernia
+* Infiltration
+* Mass
+* Nodule
+* Pleural Thickening
+* Pneumonia
+* Pneumothorax
 
-# Install dependencies
-pip install -r requirements.txt
+This is a **multi-label classification problem**, meaning a single X-ray image can contain multiple diseases simultaneously.
 
-# Run training
-python train.py
+---
 
-# Evaluate model
-python evaluate.py
+## Model Architecture
 
-⚠️ Challenges
-Severe class imbalance
-Noisy labels in dataset
-High intra-class similarity
-Limited interpretability of predictions
+### DenseNet121
 
-🔮 Future Work
-Incorporate attention mechanisms (e.g., Grad-CAM visualization)
-Use ensemble models
-Apply class balancing techniques (e.g., focal loss)
-Experiment with Vision Transformers
+This project uses a pretrained **DenseNet121** model initialized with ImageNet weights.
 
-📚 References
-NIH Chest X-ray Dataset paper
-DenseNet Architecture Paper
-Recent medical imaging research papers
+DenseNet (Densely Connected Convolutional Network) introduces direct connections between layers, allowing feature reuse throughout the network.
 
+Key advantages include:
 
-🚀 Project Overview
+* Improved gradient flow
+* Better feature propagation
+* Reduced number of parameters
+* Strong performance on medical imaging tasks
 
-This project implements a deep learning pipeline for multi-label thoracic disease classification using chest X-ray images from the NIH dataset. The model is built on a DenseNet backbone and optimized for handling class imbalance and multi-label prediction challenges common in medical imaging.
+Instead of training from scratch, transfer learning allows the model to leverage visual features learned from millions of images and adapt them to chest X-ray classification.
 
-The goal is to simulate a real-world clinical decision support system, where multiple pathologies may co-exist in a single radiograph.
+The final classification layer was modified to output disease probabilities for all target classes.
 
-👨‍💻 Author
-Aditya Chaubey 
-DL Enthusiastic
-Focus: Deep Learning, Medical Imaging, AI Systems
-⭐ If You Found This Useful
-Give it a star ⭐ on GitHub — it helps visibility and motivates further development.
+---
+
+## Training Configuration
+
+| Component               | Value                      |
+| ----------------------- | -------------------------- |
+| Framework               | PyTorch                    |
+| Backbone                | DenseNet121                |
+| Loss Function           | BCEWithLogitsLoss          |
+| Optimizer               | Adam                       |
+| Learning Rate Scheduler | ReduceLROnPlateau          |
+| Hardware                | NVIDIA Tesla T4 GPU        |
+| Task Type               | Multi-label Classification |
+| Evaluation Metric       | ROC-AUC                    |
+
+---
+
+## Why BCEWithLogitsLoss?
+
+Since multiple diseases may appear in a single X-ray, this is not a standard multi-class problem.
+
+`BCEWithLogitsLoss` combines:
+
+* Sigmoid activation
+* Binary Cross Entropy loss
+
+into a numerically stable implementation that is well-suited for multi-label disease classification.
+
+---
+
+## Evaluation Metric
+
+### ROC-AUC Score
+
+Medical imaging datasets are often highly imbalanced.
+
+Instead of relying solely on accuracy, the project uses **Area Under the Receiver Operating Characteristic Curve (ROC-AUC)** as the primary evaluation metric.
+
+### Results
+
+| Metric  | Score    |
+| ------- | -------- |
+| ROC-AUC | **0.83** |
+
+The achieved ROC-AUC of **83%** is competitive and approaches the performance reported in the original **CheXNet** research.
+
+---
+
+## Explainable AI with Grad-CAM
+
+To improve transparency and model interpretability, Grad-CAM heatmaps were generated.
+
+Grad-CAM highlights image regions that most influenced the model's prediction, allowing visual verification that the model is focusing on clinically relevant areas of the chest X-ray.
+
+### Sample Heatmaps
+
+#### Original Chest X-Ray
+
+<p align="center">
+<img src="images/original_xray.png" width="700">
+</p>
+
+#### Grad-CAM Visualization
+
+<p align="center">
+<img src="images/gradcam_heatmap.png" width="700">
+</p>
+
+#### Overlay Comparison
+
+<p align="center">
+<img src="images/overlay.png" width="700">
+</p>
+
+---
+
+## Technologies Used
+
+* Python
+* PyTorch
+* Torchvision
+* NumPy
+* Pandas
+* Matplotlib
+* Scikit-Learn
+* OpenCV
+* Grad-CAM
+
+---
+
+## Key Learnings
+
+Through this project, I gained practical experience in:
+
+* Deep Learning for Medical Imaging
+* Transfer Learning
+* Multi-label Classification
+* Model Explainability (XAI)
+* ROC-AUC Evaluation
+* PyTorch Training Pipelines
+* Learning Rate Scheduling
+* GPU-based Model Training
+
+---
+
+## Future Improvements
+
+* Advanced data augmentation
+* Cross-validation
+* Ensemble models
+* Vision Transformers (ViT)
+* Model deployment with Gradio
+* Clinical report generation using Vision-Language Models
+
+---
+
+## Acknowledgements
+
+* CheXNet Research Team
+* PyTorch Community
+* Kaggle
+* Stanford ChestX-ray14 Dataset Contributors
+
+---
+
+## Contact
+
+If you would like to discuss this project, machine learning, medical AI, or potential collaboration opportunities, feel free to connect.
+Checkout the Kaggle my notebook :https://www.kaggle.com/code/adityachaubeycode/densenet
+
+⭐ If you found this project interesting, consider giving the repository a star.
+Aditya chaubey 
