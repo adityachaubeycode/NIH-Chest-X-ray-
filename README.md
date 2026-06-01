@@ -1,3 +1,4 @@
+
 # 🩻 Chest X-Ray Disease Classification using DenseNet121
 
 ## Overview
@@ -128,21 +129,15 @@ Grad-CAM highlights image regions that most influenced the model's prediction, a
 
 #### Original Chest X-Ray
 
-<p align="center">
-<img src="images/original_xray.png" width="700">
-</p>
+<img width="1978" height="406" alt="download" src="https://github.com/user-attachments/assets/95ba28bb-4ad1-44c3-9661-bcb6492a91e7" />
 
 #### Grad-CAM Visualization
 
-<p align="center">
-<img src="images/gradcam_heatmap.png" width="700">
-</p>
+<img width="2489" height="1965" alt="download" src="https://github.com/user-attachments/assets/71aeb72b-4455-4e3c-8747-82af39fd73e9" />
 
 #### Overlay Comparison
 
-<p align="center">
-<img src="images/overlay.png" width="700">
-</p>
+<img width="1020" height="490" alt="download" src="https://github.com/user-attachments/assets/a1b741c4-ca13-48cb-bbb7-aea32e401474" />
 
 ---
 
